@@ -3,6 +3,7 @@ sources:
 - https://www.pluralsight.com/guides/react-typescript-module-create
 - https://www.freecodecamp.org/news/how-to-create-and-publish-your-first-npm-package/
 - https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma
+- https://dev.to/receter/the-minimal-setup-to-package-and-reuse-your-react-components-1063#publishinstall-your-package
 
 ## React + Vite + TypeScript + CSS.Modules
 

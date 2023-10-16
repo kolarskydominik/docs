@@ -1,7 +1,10 @@
 # Create and Deploy Micro-Frontend App to use in Host App (React+TS+Vite)
 
 sources:
-- https://dev.to/giveitatry/microfrontends-in-reactjs-do5
+- https://dev.to/giveitatry/microfrontends-in-reactjs-do5:
+
+template:
+- 
   
 ## React + Vite + TypeScript + CSS.Modules
 
@@ -129,7 +132,7 @@ You will need add to the Host App:
 
 
 
-### 3.3. Example of rendering in Framer (React)
+### 3.3 Example of rendering in Framer (React)
 ```js
 // MyComponent.tsx
 
@@ -163,6 +166,24 @@ export default function TestCalendarWidget(props) {
         </div>
     )
 }
+```
+
+### 3.4 Example of rendering in HTML
+```html
+<!-- index.html -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://calendar.vercel.app/assets/index.css">
+  </head>
+  <body>
+    
+    <div id="name-of-micro-app" data-attribute-1="name-of-micro-app79"></div>
+    <script type="module" src="https://calendar.vercel.app/assets/index.js"></script>
+  </body>
+</html>
 ```
 
 

@@ -6,7 +6,6 @@ sources:
 template:
 - https://github.com/dominikkolarsky/calendar-micro-app
   
-## React + Vite + TypeScript + CSS.Modules
 
 ### 1. Setup a new Vite project
 
@@ -42,6 +41,7 @@ _Having done that, any developer can just run **nvm use** in the project folder 
 ```shell
 npm install @types/node -D
 ```
+
 
 ### 2. Setup/Cleanup App.tsx, main.tsx, index.html
 
@@ -99,6 +99,7 @@ Dom parameter used to read the configuration of the micro-frontend-app. The conf
 ```
 For testing and development purpose.
 
+
 ## 3. Build
 Specify output files name: 
 ```js
@@ -113,6 +114,7 @@ Specify output files name:
     }
 …
 ```
+
 
 ## 4. Deploy, Injection of app
 ### 4.1 Deploy
@@ -144,7 +146,6 @@ You will need add to the Host App:
     ...
     </style>
     ```
-
 
 
 ### 4.3 Example of rendering in Framer (React)
@@ -182,6 +183,7 @@ export default function TestCalendarWidget(props) {
     )
 }
 ```
+
 
 ### 4.4 Example of rendering in HTML
 ```html

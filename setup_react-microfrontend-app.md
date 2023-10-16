@@ -99,13 +99,28 @@ Dom parameter used to read the configuration of the micro-frontend-app. The conf
 ```
 For testing and development purpose.
 
-## 3. Deploy, Injection of app
-### 3.1 Deploy
+## 3. Build
+Specify output files name: 
+```js
+// vite.config.ts
+
+    rollupOptions: {
+…
++     output: {
++       assetFileNames: 'assets/[name][extname]',
++       entryFileNames: '[name].js',
++     }
+    }
+…
+```
+
+## 4. Deploy, Injection of app
+### 4.1 Deploy
 Can be deployed on Vercel via GitHub.
 
-### 3.2. Injection of app
+### 4.2. Injection of app
 You will need add to the Host App:
-#### 3.2.1 Html div which will accomodate your app and callable script:
+#### 4.2.1 Html div which will accomodate your app and callable script:
 ```html
 <!-- index.html -->
 
@@ -114,7 +129,7 @@ You will need add to the Host App:
 <script src="widget/index.js"></script>
 ...
 ```
-#### 3.2.2 Styles
+#### 4.2.2 Styles
 - as link
     ```html
     <!-- index.html // Header -->
@@ -132,7 +147,7 @@ You will need add to the Host App:
 
 
 
-### 3.3 Example of rendering in Framer (React)
+### 4.3 Example of rendering in Framer (React)
 ```js
 // MyComponent.tsx
 
@@ -168,7 +183,7 @@ export default function TestCalendarWidget(props) {
 }
 ```
 
-### 3.4 Example of rendering in HTML
+### 4.4 Example of rendering in HTML
 ```html
 <!-- index.html -->
 

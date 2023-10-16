@@ -7,7 +7,7 @@ template:
 - https://github.com/dominikkolarsky/calendar-micro-app
   
 
-### 1. Setup a new Vite project
+## 1. Setup a new Vite project
 
 ```shell
 npm create vite@latest
@@ -43,7 +43,7 @@ npm install @types/node -D
 ```
 
 
-### 2. Setup/Cleanup App.tsx, main.tsx, index.html
+## 2. Setup/Cleanup App.tsx, main.tsx, index.html
 
 ### 2.1 main.tsx
 
@@ -67,7 +67,7 @@ ReactDOM.createRoot(widgetDiv!).render(
 ```
 
 ### 2.2 App.tsx
-This is the injected micro-frontend-app.
+This is the code, which will be injected in Host App.
 
 ```js
 // App.tsx
@@ -84,7 +84,7 @@ function App({ domElement }: { domElement: HTMLElement }) {
 
 export default App;
 ```
-Dom parameter used to read the configuration of the micro-frontend-app. The configuration will be filled in Tracardi and passed as data attributes.
+_DomElement parameter used to read the configuration of the micro-frontend-app. The configuration will be filled in Host App and passed as data attributes to our micro-app._
 
 
 ### 2.3 index.html
@@ -97,7 +97,7 @@ Dom parameter used to read the configuration of the micro-frontend-app. The conf
   </body>
 ...
 ```
-For testing and development purpose.
+_For local testing and development purposes._
 
 
 ## 3. Build
@@ -116,13 +116,12 @@ Specify output files name:
 ```
 
 
-## 4. Deploy, Injection of app
-### 4.1 Deploy
+## 4. Deploy
 Can be deployed on Vercel via GitHub.
 
-### 4.2. Injection of app
+## 5. Injection of App
 You will need add to the Host App:
-#### 4.2.1 Html div which will accomodate your app and callable script:
+### 5.1 HTML div which will accommodate your app and its script:
 ```html
 <!-- index.html -->
 
@@ -131,14 +130,14 @@ You will need add to the Host App:
 <script src="widget/index.js"></script>
 ...
 ```
-#### 4.2.2 Styles
-- as link
+### 5.2 Styles
+1. Option - link
     ```html
     <!-- index.html // Header -->
     
     <link rel="stylesheet" href="https://calendar-mu-nine.vercel.app/assets/index.css">
     ```
-- inline
+2. Option - inline
     ```html
     <!-- index.html // Header -->
     
@@ -147,8 +146,8 @@ You will need add to the Host App:
     </style>
     ```
 
-
-### 4.3 Example of rendering in Framer (React)
+## 6. Examples of implementation in Host App
+### 6.1 Rendering in Framer / React
 ```js
 // MyComponent.tsx
 
@@ -185,7 +184,7 @@ export default function TestCalendarWidget(props) {
 ```
 
 
-### 4.4 Example of rendering in HTML
+### 6.2 Rendering in HTML
 ```html
 <!-- index.html -->
 

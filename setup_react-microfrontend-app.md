@@ -45,6 +45,8 @@ npm install @types/node -D
 ### 2.1 main.tsx
 
 ```js
+// main.tsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
@@ -65,6 +67,8 @@ ReactDOM.createRoot(widgetDiv!).render(
 This is the injected micro-frontend-app.
 
 ```js
+// App.tsx
+
 function App({ domElement }: { domElement: HTMLElement }) {
   const attribute = domElement.getAttribute('data-attribute-1');
 
@@ -98,23 +102,26 @@ Can be deployed on Vercel via GitHub.
 
 ### 3.2. Injection of app
 You will need add to the Host App:
-1. html div which will accomodate your app and callable script:
+#### 3.2.1 Html div which will accomodate your app and callable script:
 ```html
+<!-- index.html -->
+
 ...
-    <div id="name-of-micro-app" data-attribute-1="name-of-micro-app666"></div>
-    <script src="widget/index.js"></script>
+<div id="name-of-micro-app" data-attribute-1="name-of-micro-app666"></div>
+<script src="widget/index.js"></script>
 ...
 ```
-2. styles:
-  - as link
+#### 3.2.2 Styles
+- as link
     ```html
-    ...index.html // Header
+    <!-- index.html // Header -->
     
     <link rel="stylesheet" href="https://calendar-mu-nine.vercel.app/assets/index-5cb7edca.css">
     ```
-  - inline
+- inline
     ```html
-        ...index.html // Header
+    <!-- index.html // Header -->
+    
     <style>
     ...
     </style>
@@ -122,8 +129,10 @@ You will need add to the Host App:
 
 
 
-### 3.3. Example of rendering in Framer
+### 3.3. Example of rendering in Framer (React)
 ```js
+// MyComponent.tsx
+
 import * as React from "react"
 
 /**

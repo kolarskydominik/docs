@@ -11,7 +11,7 @@ sources:
 npm create vite@latest
 ? Project name: › my-micro-app
 ? Select a framework: › React
-? Select a variant: › TypeScript
+? Select a variant: › TypeScript + SWC
 cd my-micro-app
 npm i
 ```
@@ -39,4 +39,127 @@ _Having done that, any developer can just run **nvm use** in the project folder 
 ```shell
 npm install @types/node -D
 ```
+
+### 2. Setup/Cleanup App.tsx, main.tsx, index.html
+
+### 2.1 main.tsx
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+
+const widgetName = 'name-of-micro-app';
+const widgetDiv = document.getElementById(widgetName);
+
+ReactDOM.createRoot(widgetDiv!).render(
+  <React.StrictMode>
+    <App domElement={widgetDiv!} />
+  </React.StrictMode>
+);
+
+```
+
+### 2.2 App.tsx
+This is the injected micro-frontend-app.
+
+```js
+function App({ domElement }: { domElement: HTMLElement }) {
+  const attribute = domElement.getAttribute('data-attribute-1');
+
+  return (
+    <>
+      <div>Hello from micro-frontend-app, called: {attribute}</div>
+    </>
+  );
+}
+
+export default App;
+```
+Dom parameter used to read the configuration of the micro-frontend-app. The configuration will be filled in Tracardi and passed as data attributes.
+
+
+### 2.3 index.html
+
+```html
+...
+  <body>
+    <div id="name-of-micro-app" data-attribute-1="name-of-micro-app666"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+...
+```
+For testing and development purpose.
+
+## 3. Deploy, Injection of app
+### 3.1 Deploy
+Can be deployed on Vercel via GitHub.
+
+### 3.2. Injection of app
+You will need add to the Host App:
+1. html div which will accomodate your app and callable script:
+```html
+...
+    <div id="name-of-micro-app" data-attribute-1="name-of-micro-app666"></div>
+    <script src="widget/index.js"></script>
+...
+```
+2. styles:
+  - as link
+    ```html
+    ...index.html // Header
+    
+    <link rel="stylesheet" href="https://calendar-mu-nine.vercel.app/assets/index-5cb7edca.css">
+    ```
+  - inline
+    ```html
+        ...index.html // Header
+    <style>
+    ...
+    </style>
+    ```
+
+
+
+### 3.3. Example of rendering in Framer
+```js
+import * as React from "react"
+
+/**
+ * These annotations control how your component sizes
+ * Learn more: https://www.framer.com/developers/#code-components-auto-sizing
+ *
+ * @framerSupportedLayoutWidth any
+ * @framerSupportedLayoutHeight any
+ */
+
+export default function TestCalendarWidget(props) {
+    const jsSrc = `https://calendar-mu-nine.vercel.app/assets/index-f28aa428.js`
+    const attr = `name-of-your-app`
+    const widget = `<div id="name-of-micro-app" data-attribute-1=${attr}></div>`
+
+    React.useEffect(() => {
+        const wrap = document.createElement("div")
+        const scr = document.createElement("script")
+        scr.src = jsSrc
+        scr.type = "text/javascript"
+        wrap.appendChild(scr)
+        document.getElementById("name-of-micro-app")?.appendChild(wrap)
+    }, [])
+
+    return (
+        <div>
+            <div dangerouslySetInnerHTML={{ __html: widget }} />
+        </div>
+    )
+}
+```
+
+
+
+
+
+
+
 

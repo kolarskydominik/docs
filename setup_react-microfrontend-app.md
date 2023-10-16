@@ -134,7 +134,7 @@ You will need add to the Host App:
     ```html
     <!-- index.html // Header -->
     
-    <link rel="stylesheet" href="https://calendar-mu-nine.vercel.app/assets/index-5cb7edca.css">
+    <link rel="stylesheet" href="https://calendar-mu-nine.vercel.app/assets/index.css">
     ```
 - inline
     ```html
@@ -162,7 +162,7 @@ import * as React from "react"
  */
 
 export default function TestCalendarWidget(props) {
-    const jsSrc = `https://calendar-mu-nine.vercel.app/assets/index-f28aa428.js`
+    const jsSrc = `https://calendar-mu-nine.vercel.app/assets/index.js`
     const attr = `name-of-your-app`
     const widget = `<div id="name-of-micro-app" data-attribute-1=${attr}></div>`
 

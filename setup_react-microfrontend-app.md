@@ -4,7 +4,7 @@ sources:
 - https://dev.to/giveitatry/microfrontends-in-reactjs-do5:
 
 template:
-- 
+- https://github.com/dominikkolarsky/calendar-micro-app
   
 ## React + Vite + TypeScript + CSS.Modules
 

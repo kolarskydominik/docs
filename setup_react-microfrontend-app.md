@@ -1,7 +1,8 @@
 # Create and Deploy Micro-Frontend App to use in Host App (React+TS+Vite)
 
 sources:
-- https://dev.to/giveitatry/microfrontends-in-reactjs-do5:
+- https://dev.to/giveitatry/microfrontends-in-reactjs-do5
+- https://medium.com/@vinaykrmittal/micro-frontend-architecture-with-react-e6379b13d7d7
 
 template:
 - https://github.com/dominikkolarsky/calendar-micro-app
